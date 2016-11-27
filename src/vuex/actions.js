@@ -3,7 +3,7 @@ import ActionTypes from './action_types';
 
 export default {
   [ActionTypes.START]({ commit, getters }) {
-    const timer = setInterval(() => {
+    const timerId = setInterval(() => {
       commit(MutationTypes.TICK);
 
       if (getters.isFinished) {
@@ -12,7 +12,7 @@ export default {
     }, 1000);
 
     commit(MutationTypes.CLEAR_TIMER);
-    commit(MutationTypes.SET_TIMER, { timer });
+    commit(MutationTypes.SET_TIMER_ID, { timerId });
   },
 
   [ActionTypes.STOP]({ commit }) {

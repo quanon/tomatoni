@@ -14,14 +14,14 @@ export default {
     state.time = payload.time;
   },
 
-  [MutationTypes.SET_TIMER](state, payload) {
-    state.timer = payload.timer;
+  [MutationTypes.SET_TIMER_ID](state, payload) {
+    state.timerId = payload.timerId;
   },
 
   [MutationTypes.CLEAR_TIMER](state) {
-    if (!state.timer) return;
+    if (!state.timerId) return;
 
-    clearInterval(state.timer);
-    state.timer = null;
+    clearInterval(state.timerId);
+    state.timerId = null;
   }
 };

@@ -1,6 +1,6 @@
 export default {
   TICK: 'TICK',
   SET_TIME: 'SET_TIME',
-  SET_TIMER: 'SET_TIMER',
+  SET_TIMER_ID: 'SET_TIMER_ID',
   CLEAR_TIMER: 'CLEAR_TIMER'
 };
