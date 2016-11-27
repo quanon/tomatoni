@@ -1,4 +1,6 @@
+import Config from '../config';
+
 export default {
-  time: '25:00',
+  time: Config.DEFAULT_TIME,
   isActive: false
 };

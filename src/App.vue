@@ -4,6 +4,7 @@
     <main class="ui middle aligned center aligned grid">
       <div class="column">
         <timer></timer>
+        <reset-button></reset-button>
         <timer-button></timer-button>
       </div>
     </main>
@@ -14,10 +15,14 @@
 import Navbar from './components/Navbar';
 import Timer from './components/Timer';
 import TimerButton from './components/TimerButton';
+import ResetButton from './components/ResetButton';
 
 export default {
   components: {
-    Navbar, Timer, TimerButton
+    Navbar,
+    Timer,
+    TimerButton,
+    ResetButton
   }
 };
 </script>
@@ -42,5 +47,14 @@ html, body, #app {
 
 main {
   height: 100%;
+}
+
+.icon-button {
+  color: #821400;
+  cursor: pointer;
+}
+
+.icon-button.disabled {
+  cursor: not-allowed;;
 }
 </style>

@@ -1,24 +1,27 @@
 <template>
-  <i class="huge icon" :class="iconClass" @click="onClick"></i>
+  <i class="huge icon icon-button" :class="iconClass" @click="onClick"></i>
 </template>
 
 <script>
+import $ from 'jquery';
 import ActionTypes from '../vuex/action_types';
 
 export default {
   computed: {
     iconClass() {
-      if (this.$store.getters.isFinished) return 'repeat';
+      if (this.$store.getters.isFinished) return 'disabled pause';
 
       return this.$store.getters.isActive ? 'pause' : 'play';
     }
   },
   methods: {
-    onClick() {
+    onClick(e) {
+      if ($(e.currentTarget).hasClass('disabled')) return false;
+
       if (this.$store.getters.isFinished) {
         this.$store.dispatch(ActionTypes.RESET);
         this.$store.dispatch(ActionTypes.START);
-        return;
+        return true;
       }
 
       if (this.$store.getters.isActive) {
@@ -26,14 +29,12 @@ export default {
       } else {
         this.$store.dispatch(ActionTypes.START);
       }
+
+      return true;
     }
   }
 };
 </script>
 
 <style scoped>
-.icon {
-  color: #821400;
-  cursor: pointer;
-}
 </style>

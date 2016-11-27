@@ -1,5 +1,6 @@
 import MutationTypes from './mutation_types';
 import ActionTypes from './action_types';
+import Config from '../config';
 
 export default {
   [ActionTypes.START]({ commit, getters }) {
@@ -21,6 +22,6 @@ export default {
 
   [ActionTypes.RESET]({ commit }) {
     commit(MutationTypes.STOP);
-    commit(MutationTypes.SET_TIME, { time: '25:00' });
+    commit(MutationTypes.SET_TIME, { time: Config.DEFAULT_TIME });
   }
 };
