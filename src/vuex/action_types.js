@@ -1,4 +1,4 @@
-const START = 'START';
-const STOP = 'STOP';
-
-export { START, STOP };
+export default {
+  START: 'START',
+  STOP: 'STOP'
+};

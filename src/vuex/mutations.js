@@ -1,20 +1,24 @@
 /* eslint-disable no-param-reassign */
 import moment from 'moment';
-import { TICK, SET_TIMER, CLEAR_TIMER } from './mutation_types';
+import MutationTypes from './mutation_types';
 
 export default {
-  [TICK](state) {
+  [MutationTypes.TICK](state) {
     state.time =
       moment(state.time, 'mm:ss')
         .subtract(1, 'second')
         .format('mm:ss');
   },
 
-  [SET_TIMER](state, payload) {
+  [MutationTypes.SET_TIME](state, payload) {
+    state.time = payload.time;
+  },
+
+  [MutationTypes.SET_TIMER](state, payload) {
     state.timer = payload.timer;
   },
 
-  [CLEAR_TIMER](state) {
+  [MutationTypes.CLEAR_TIMER](state) {
     if (!state.timer) return;
 
     clearInterval(state.timer);

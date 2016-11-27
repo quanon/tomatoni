@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { START, STOP } from '../vuex/action_types';
+import ActionTypes from '../vuex/action_types';
 
 export default {
   computed: {
@@ -15,13 +15,17 @@ export default {
   },
   methods: {
     onClick() {
-      // if (this.$store.getters.isFinished) {
-      //   this.$store.dispatch(RESET);
-      //   return;
-      // }
-      const action = this.$store.getters.isActive ? STOP : START;
+      if (this.$store.getters.isFinished) {
+        this.$store.dispatch(ActionTypes.RESET);
+        this.$store.dispatch(ActionTypes.START);
+        return;
+      }
 
-      this.$store.dispatch(action);
+      if (this.$store.getters.isActive) {
+        this.$store.dispatch(ActionTypes.STOP);
+      } else {
+        this.$store.dispatch(ActionTypes.START);
+      }
     }
   }
 };

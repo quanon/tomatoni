@@ -1,21 +1,25 @@
-import { TICK, SET_TIMER, CLEAR_TIMER } from './mutation_types';
-import { START, STOP } from './action_types';
+import MutationTypes from './mutation_types';
+import ActionTypes from './action_types';
 
 export default {
-  [START]({ commit, getters }) {
+  [ActionTypes.START]({ commit, getters }) {
     const timer = setInterval(() => {
-      commit(TICK);
+      commit(MutationTypes.TICK);
 
       if (getters.isFinished) {
-        commit(CLEAR_TIMER);
+        commit(MutationTypes.CLEAR_TIMER);
       }
     }, 1000);
 
-    commit(CLEAR_TIMER);
-    commit(SET_TIMER, { timer });
+    commit(MutationTypes.CLEAR_TIMER);
+    commit(MutationTypes.SET_TIMER, { timer });
   },
 
-  [STOP]({ commit }) {
-    commit(CLEAR_TIMER);
+  [ActionTypes.STOP]({ commit }) {
+    commit(MutationTypes.CLEAR_TIMER);
+  },
+
+  [ActionTypes.RESET]({ commit }) {
+    commit(MutationTypes.SET_TIME, { time: '25:00' });
   }
 };
