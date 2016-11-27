@@ -8,9 +8,11 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  computed: mapGetters([
-    'time'
-  ])
+  computed: {
+    ...mapGetters([
+      'time'
+    ])
+  }
 };
 </script>
 

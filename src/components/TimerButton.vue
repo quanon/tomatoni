@@ -1,14 +1,29 @@
 <template>
-  <i class="play huge icon" @click="start"></i>
+  <i class="huge icon" :class="iconClass" @click="onClick"></i>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { START, STOP } from '../vuex/action_types';
 
 export default {
-  methods: mapActions([
-    'start'
-  ])
+  computed: {
+    iconClass() {
+      if (this.$store.getters.isFinished) return 'repeat';
+
+      return this.$store.getters.isActive ? 'pause' : 'play';
+    }
+  },
+  methods: {
+    onClick() {
+      // if (this.$store.getters.isFinished) {
+      //   this.$store.dispatch(RESET);
+      //   return;
+      // }
+      const action = this.$store.getters.isActive ? STOP : START;
+
+      this.$store.dispatch(action);
+    }
+  }
 };
 </script>
 

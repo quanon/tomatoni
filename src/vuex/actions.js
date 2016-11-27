@@ -1,16 +1,21 @@
 import { TICK, SET_TIMER, CLEAR_TIMER } from './mutation_types';
+import { START, STOP } from './action_types';
 
 export default {
-  start({ commit, state }) {
+  [START]({ commit, getters }) {
     const timer = setInterval(() => {
       commit(TICK);
 
-      if (state.time === '00:00') {
+      if (getters.isFinished) {
         commit(CLEAR_TIMER);
       }
     }, 1000);
 
     commit(CLEAR_TIMER);
     commit(SET_TIMER, { timer });
+  },
+
+  [STOP]({ commit }) {
+    commit(CLEAR_TIMER);
   }
 };

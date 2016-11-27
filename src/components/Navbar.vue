@@ -14,10 +14,10 @@ import $ from 'jquery';
 import emojione from 'emojione';
 
 export default {
-  data() {
-    return {
-      src: $(emojione.toImage(':tomato:')).prop('src')
-    };
+  computed: {
+    src() {
+      return $(emojione.toImage(':tomato:')).prop('src');
+    }
   }
 };
 </script>
