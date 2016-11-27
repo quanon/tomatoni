@@ -1,3 +1,4 @@
 export default {
-  time: '25:00'
+  time: '25:00',
+  timer: null
 };
