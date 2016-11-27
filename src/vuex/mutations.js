@@ -3,6 +3,10 @@ import moment from 'moment';
 import MutationTypes from './mutation_types';
 
 export default {
+  [MutationTypes.SET_TIME](state, payload) {
+    state.time = payload.time;
+  },
+
   [MutationTypes.TICK](state) {
     state.time =
       moment(state.time, 'mm:ss')
@@ -10,18 +14,11 @@ export default {
         .format('mm:ss');
   },
 
-  [MutationTypes.SET_TIME](state, payload) {
-    state.time = payload.time;
+  [MutationTypes.START](state) {
+    state.isActive = true;
   },
 
-  [MutationTypes.SET_TIMER_ID](state, payload) {
-    state.timerId = payload.timerId;
-  },
-
-  [MutationTypes.CLEAR_TIMER](state) {
-    if (!state.timerId) return;
-
-    clearInterval(state.timerId);
-    state.timerId = null;
+  [MutationTypes.STOP](state) {
+    state.isActive = false;
   }
 };

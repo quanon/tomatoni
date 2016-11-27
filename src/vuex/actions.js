@@ -3,23 +3,24 @@ import ActionTypes from './action_types';
 
 export default {
   [ActionTypes.START]({ commit, getters }) {
-    const timerId = setInterval(() => {
+    const ticktack = () => {
+      if (getters.isFinished) commit(MutationTypes.STOP);
+      if (!getters.isActive) return;
+
+      setTimeout(ticktack, 1000);
       commit(MutationTypes.TICK);
+    };
 
-      if (getters.isFinished) {
-        commit(MutationTypes.CLEAR_TIMER);
-      }
-    }, 1000);
-
-    commit(MutationTypes.CLEAR_TIMER);
-    commit(MutationTypes.SET_TIMER_ID, { timerId });
+    commit(MutationTypes.START);
+    setTimeout(ticktack, 1000);
   },
 
   [ActionTypes.STOP]({ commit }) {
-    commit(MutationTypes.CLEAR_TIMER);
+    commit(MutationTypes.STOP);
   },
 
   [ActionTypes.RESET]({ commit }) {
+    commit(MutationTypes.STOP);
     commit(MutationTypes.SET_TIME, { time: '25:00' });
   }
 };

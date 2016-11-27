@@ -4,7 +4,7 @@ export default {
   },
 
   isActive(state) {
-    return !!state.timerId;
+    return state.isActive;
   },
 
   isFinished(state) {
