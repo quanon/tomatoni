@@ -5,16 +5,12 @@
 </template>
 
 <script>
-import moment from 'moment';
-
-const time = moment('2000-01-01 00:25:00');
+import { mapGetters } from 'vuex';
 
 export default {
-  data() {
-    return {
-      time: time.format('mm:ss')
-    };
-  }
+  computed: mapGetters([
+    'time'
+  ])
 };
 </script>
 

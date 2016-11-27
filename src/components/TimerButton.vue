@@ -1,8 +1,15 @@
 <template>
-  <i class="play huge icon"></i>
+  <i class="play huge icon" @click="start"></i>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
+export default {
+  methods: mapActions([
+    'start'
+  ])
+};
 </script>
 
 <style scoped>
