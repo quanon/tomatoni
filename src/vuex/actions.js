@@ -4,8 +4,10 @@ import ActionTypes from './action_types';
 import Config from '../config';
 import soundSrc from '../assets/sunday_church_ambiance.mp3';
 
+let sound = null;
+
 const playSound = () => {
-  const sound = new Howl({
+  sound = new Howl({
     src: [soundSrc]
   });
 
@@ -13,6 +15,12 @@ const playSound = () => {
   sound.fade(1, 0, 5000);
 };
 
+const stopSound = () => {
+  if (!sound) return;
+
+  sound.stop();
+  sound = null;
+};
 
 export default {
   [ActionTypes.START]({ commit, getters }) {
@@ -40,5 +48,6 @@ export default {
   [ActionTypes.RESET]({ commit }) {
     commit(MutationTypes.STOP);
     commit(MutationTypes.SET_TIME, { time: Config.DEFAULT_TIME });
+    stopSound();
   }
 };
