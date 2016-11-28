@@ -78,6 +78,14 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.(wav|mp3|ogg|m4a)(\?.*)?$/,
+        loader: 'url',
+        query: {
+          limit: 10000,
+          name: utils.assetsPath('sound/[name].[hash:7].[ext]')
+        }
       }
     ]
   },
