@@ -1,33 +1,14 @@
-import { Howl } from 'howler';
 import MutationTypes from './mutation_types';
 import ActionTypes from './action_types';
 import Config from '../config';
-import soundSrc from '../assets/sunday_church_ambiance.mp3';
-
-let sound = null;
-
-const playSound = () => {
-  sound = new Howl({
-    src: [soundSrc]
-  });
-
-  sound.play();
-  sound.fade(1, 0, 5000);
-};
-
-const stopSound = () => {
-  if (!sound) return;
-
-  sound.stop();
-  sound = null;
-};
+import sound from '../sound';
 
 export default {
   [ActionTypes.START]({ commit, getters }) {
     const ticktack = () => {
       if (getters.isFinished) {
         commit(MutationTypes.STOP);
-        playSound();
+        sound.play();
         return;
       }
 
@@ -48,6 +29,6 @@ export default {
   [ActionTypes.RESET]({ commit }) {
     commit(MutationTypes.STOP);
     commit(MutationTypes.SET_TIME, { time: Config.DEFAULT_TIME });
-    stopSound();
+    sound.stop();
   }
 };
