@@ -3,26 +3,31 @@ import ActionTypes from './action_types';
 import Config from '../config';
 import sound from '../sound';
 
+let ticktackId = null;
+
 export default {
   [ActionTypes.START]({ commit, getters }) {
     const ticktack = () => {
+      if (!getters.isActive) {
+        clearInterval(ticktackId);
+        return;
+      }
       if (getters.isFinished) {
         commit(MutationTypes.STOP);
         sound.play();
+        clearInterval(ticktackId);
         return;
       }
 
-      if (!getters.isActive) return;
-
-      setTimeout(ticktack, 1000);
       commit(MutationTypes.TICK);
     };
 
     commit(MutationTypes.START);
-    setTimeout(ticktack, 1000);
+    ticktackId = setInterval(ticktack, 1000);
   },
 
   [ActionTypes.STOP]({ commit }) {
+    clearInterval(ticktackId);
     commit(MutationTypes.STOP);
   },
 
