@@ -18,16 +18,17 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/stylesheets/variables';
+@import '../assets/stylesheets/modular-scale';
 
 .time {
-  font-size: 10.0rem;
-  line-height: 10.0rem;
+  font-size: modular-scale(8);
+  line-height: modular-scale(8);
   margin-bottom: 1.0rem;
   color: #821400;
 
   @media screen and (max-width: $tablet-breakpoint) {
-    font-size: 7.5rem;
-    line-height: 7.5rem;
+    font-size: modular-scale(7);
+    line-height: modular-scale(7);
   }
 }
 </style>

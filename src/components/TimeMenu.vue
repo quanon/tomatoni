@@ -43,6 +43,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/stylesheets/variables';
+@import '../assets/stylesheets/modular-scale';
 
 .menu,
 .item,
@@ -59,6 +61,11 @@ export default {
   border-color: #ffe8e4 !important;
   padding-left: 5.0rem !important;
   padding-right: 5.0rem !important;
+
+  @media screen and (max-width: $tablet-breakpoint) {
+    padding-left: modular-scale(-1, 5.0rem) !important;
+    padding-right: modular-scale(-1, 5.0rem) !important;
+  }
 
   img {
     filter: contrast(0);

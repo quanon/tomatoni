@@ -41,7 +41,7 @@ export default {
   cursor: pointer;
 
   &.disabled {
-    cursor: not-allowed;;
+    cursor: not-allowed;
   }
 }
 </style>
