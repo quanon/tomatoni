@@ -5,9 +5,15 @@
       <div class="row">
         <div class="center aligned column">
           <time-menu class="time-menu"></time-menu>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
           <timer></timer>
           <timer-button class="timer-button"></timer-button>
         </div>
+      </div>
+      <div class="row">
       </div>
     </main>
   </div>
@@ -32,9 +38,5 @@ export default {
 <style lang="scss" scoped>
 .time-menu {
   margin-bottom: 5.0rem !important;
-}
-
-.timer-button {
-  padding-bottom: 10.0rem !important;
 }
 </style>
