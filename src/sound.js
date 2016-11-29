@@ -1,5 +1,5 @@
 import { Howl } from 'howler';
-import src from './assets/sunday_church_ambiance.mp3';
+import src from './assets/ringing_clock.mp3';
 
 let sound = null;
 
@@ -10,7 +10,6 @@ export default {
     });
 
     sound.play();
-    sound.fade(1, 0, 5000);
   },
 
   stop() {
