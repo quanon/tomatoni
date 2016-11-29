@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App';
 import store from './vuex/store';
-import Notification from './notification';
+import Notification from './utils/notification';
 import './assets/stylesheets/global.scss';
 import '../node_modules/semantic-ui-css/semantic.css';
 
