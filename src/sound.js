@@ -1,5 +1,5 @@
 import { Howl } from 'howler';
-import src from './assets/ringing_clock.mp3';
+import src from './assets/media/ringing_clock.mp3';
 
 let sound = null;
 

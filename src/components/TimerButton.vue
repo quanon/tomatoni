@@ -1,5 +1,5 @@
 <template>
-  <i class="huge icon icon-button" :class="iconClass" @click="onClick"></i>
+  <i class="huge icon" :class="iconClass" @click="onClick"></i>
 </template>
 
 <script>
@@ -36,4 +36,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.icon {
+  color: #821400;
+  cursor: pointer;
+
+  &.disabled {
+    cursor: not-allowed;;
+  }
+}
 </style>

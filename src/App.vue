@@ -29,37 +29,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-html {
-  font-size: 62.5%;
-}
-
-html, body, #app {
-  height: 100%;
-  margin: 0;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-#app {
-  background-color: #fff9f8;
-}
-
-main {
-  height: 100%;
-}
-
-.icon-button {
-  color: #821400;
-  cursor: pointer;
-
-  &.disabled {
-    cursor: not-allowed;;
-  }
-}
-
+<style lang="scss" scoped>
 .time-menu {
   margin-bottom: 5.0rem !important;
 }
