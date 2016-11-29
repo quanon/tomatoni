@@ -31,6 +31,8 @@ let ticktackId = null;
 export default {
   [ActionTypes.START]({ commit, getters }) {
     const ticktack = () => {
+      commit(MutationTypes.TICK);
+
       if (!getters.isActive) {
         clearInterval(ticktackId);
         return;
@@ -42,8 +44,6 @@ export default {
         clearInterval(ticktackId);
         return;
       }
-
-      commit(MutationTypes.TICK);
     };
 
     commit(MutationTypes.START);
