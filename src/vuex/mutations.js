@@ -3,8 +3,12 @@ import moment from 'moment';
 import MutationTypes from './mutation_types';
 
 export default {
-  [MutationTypes.SET_TIME](state, payload) {
-    state.time = payload.time;
+  [MutationTypes.RESET](state) {
+    state.time = state.defaultTime;
+  },
+
+  [MutationTypes.SET_DEFAULT_TIME](state, payload) {
+    state.defaultTime = payload.defaultTime;
   },
 
   [MutationTypes.TICK](state) {

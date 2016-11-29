@@ -1,5 +1,6 @@
 export default {
-  SET_TIME: 'SET_TIME',
+  RESET: 'RESET',
+  SET_DEFAULT_TIME: 'SET_DEFAULT_TIME',
   TICK: 'TICK',
   START: 'START',
   STOP: 'STOP'

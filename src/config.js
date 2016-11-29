@@ -1,3 +1,4 @@
 export default {
-  DEFAULT_TIME: '25:00'
+  DEFAULT_POMODORO_TIME: '25:00',
+  DEFAULT_SHORT_BREAK_TIME: '05:00'
 };

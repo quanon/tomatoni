@@ -6,11 +6,21 @@ import Config from '../config';
 import sound from '../sound';
 import Notification from '../notification';
 
-const showNotification = () => {
-  const notification = new Notification('Well done 👍', {
-    body: 'Take a short break ☕️',
-    icon: $(emojione.toImage(':tomato:')).prop('src')
-  });
+const showNotification = (getters) => {
+  let notification;
+
+  if (getters.isPomodoro) {
+    notification = new Notification('Well done 👍', {
+      body: 'Take a short break ☕️',
+      icon: $(emojione.toImage(':tomato:')).prop('src')
+    });
+  } else {
+    notification = new Notification('Short break finished 😇', {
+      body: 'Start the next job',
+      icon: $(emojione.toImage(':tomato:')).prop('src')
+    });
+  }
+
   notification.show();
 
   setTimeout(notification.close.bind(notification), 3000);
@@ -28,7 +38,7 @@ export default {
       if (getters.isFinished) {
         commit(MutationTypes.STOP);
         sound.play();
-        showNotification();
+        showNotification(getters);
         clearInterval(ticktackId);
         return;
       }
@@ -47,7 +57,19 @@ export default {
 
   [ActionTypes.RESET]({ commit }) {
     commit(MutationTypes.STOP);
-    commit(MutationTypes.SET_TIME, { time: Config.DEFAULT_TIME });
+    commit(MutationTypes.RESET);
     sound.stop();
+  },
+
+  [ActionTypes.SELECT_POMODORO]({ commit }) {
+    commit(MutationTypes.SET_DEFAULT_TIME, {
+      defaultTime: Config.DEFAULT_POMODORO_TIME
+    });
+  },
+
+  [ActionTypes.SELECT_SHORT_BREAK]({ commit }) {
+    commit(MutationTypes.SET_DEFAULT_TIME, {
+      defaultTime: Config.DEFAULT_SHORT_BREAK_TIME
+    });
   }
 };

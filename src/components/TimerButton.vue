@@ -9,7 +9,7 @@ import ActionTypes from '../vuex/action_types';
 export default {
   computed: {
     iconClass() {
-      if (this.$store.getters.isFinished) return 'disabled pause';
+      if (this.$store.getters.isFinished) return 'repeat';
 
       return this.$store.getters.isActive ? 'pause' : 'play';
     }
@@ -20,7 +20,6 @@ export default {
 
       if (this.$store.getters.isFinished) {
         this.$store.dispatch(ActionTypes.RESET);
-        this.$store.dispatch(ActionTypes.START);
         return true;
       }
 

@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <navbar></navbar>
-    <main class="ui middle aligned center aligned grid">
-      <div class="column">
-        <timer></timer>
-        <reset-button></reset-button>
-        <timer-button></timer-button>
+    <main class="ui middle aligned grid">
+      <div class="row">
+        <div class="center aligned column">
+          <time-menu class="time-menu"></time-menu>
+          <timer></timer>
+          <timer-button class="timer-button"></timer-button>
+        </div>
       </div>
     </main>
   </div>
@@ -14,15 +16,15 @@
 <script>
 import Navbar from './components/Navbar';
 import Timer from './components/Timer';
+import TimeMenu from './components/TimeMenu';
 import TimerButton from './components/TimerButton';
-import ResetButton from './components/ResetButton';
 
 export default {
   components: {
     Navbar,
+    TimeMenu,
     Timer,
-    TimerButton,
-    ResetButton
+    TimerButton
   }
 };
 </script>
@@ -56,5 +58,13 @@ main {
 
 .icon-button.disabled {
   cursor: not-allowed;;
+}
+
+.time-menu {
+  margin-bottom: 5.0rem !important;
+}
+
+.timer-button {
+  padding-bottom: 10.0rem !important;
 }
 </style>
