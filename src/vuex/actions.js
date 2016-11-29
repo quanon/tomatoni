@@ -1,7 +1,20 @@
+import $ from 'jquery';
+import emojione from 'emojione';
 import MutationTypes from './mutation_types';
 import ActionTypes from './action_types';
 import Config from '../config';
 import sound from '../sound';
+import Notification from '../notification';
+
+const showNotification = () => {
+  const notification = new Notification('Well done 👍', {
+    body: 'Take a short break ☕️',
+    icon: $(emojione.toImage(':tomato:')).prop('src')
+  });
+  notification.show();
+
+  setTimeout(notification.close.bind(notification), 3000);
+};
 
 let ticktackId = null;
 
@@ -15,6 +28,7 @@ export default {
       if (getters.isFinished) {
         commit(MutationTypes.STOP);
         sound.play();
+        showNotification();
         clearInterval(ticktackId);
         return;
       }
