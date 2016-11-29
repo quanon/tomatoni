@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 .menu,
 .item,
@@ -59,17 +59,17 @@ export default {
   border-color: #ffe8e4 !important;
   padding-left: 5.0rem !important;
   padding-right: 5.0rem !important;
-}
 
-.item.active {
-  background-color: #ffd7d0 !important;
-}
+  img {
+    filter: contrast(0);
+  }
 
-.item img {
-  filter: contrast(0);
-}
+  &.active {
+    background-color: #ffd7d0 !important;
 
-.item.active img {
-  filter: none;
+    img {
+      filter: none;
+    }
+  }
 }
 </style>

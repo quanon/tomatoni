@@ -29,7 +29,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 html {
   font-size: 62.5%;
 }
@@ -54,10 +54,10 @@ main {
 .icon-button {
   color: #821400;
   cursor: pointer;
-}
 
-.icon-button.disabled {
-  cursor: not-allowed;;
+  &.disabled {
+    cursor: not-allowed;;
+  }
 }
 
 .time-menu {

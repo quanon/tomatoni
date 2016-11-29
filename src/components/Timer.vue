@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .time {
   font-size: 10rem;
   line-height: 10rem;
