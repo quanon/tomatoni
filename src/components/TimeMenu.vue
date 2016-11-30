@@ -4,7 +4,7 @@
       v-for='item in items'
       v-bind:emoji='item.emoji'
       v-bind:isActive='item.isActive'
-      v-bind:selectMode='item.selectMode'
+      @click='item.onClick'
     )
 </template>
 
@@ -17,24 +17,26 @@ export default {
     TimeMenuItem
   },
   data() {
+    const store = this.$store;
+
     return {
       items: [{
         emoji: ':tomato:',
         isActive() {
-          return this.$store.getters.isPomodoro;
+          return store.getters.isPomodoro;
         },
-        selectMode() {
-          this.$store.dispatch(ActionTypes.SELECT_POMODORO);
-          this.$store.dispatch(ActionTypes.RESET);
+        onClick() {
+          store.dispatch(ActionTypes.SELECT_POMODORO);
+          store.dispatch(ActionTypes.RESET);
         }
       }, {
         emoji: ':coffee:',
         isActive() {
-          return this.$store.getters.isShortBreak;
+          return store.getters.isShortBreak;
         },
-        selectMode() {
-          this.$store.dispatch(ActionTypes.SELECT_SHORT_BREAK);
-          this.$store.dispatch(ActionTypes.RESET);
+        onClick() {
+          store.dispatch(ActionTypes.SELECT_SHORT_BREAK);
+          store.dispatch(ActionTypes.RESET);
         }
       }]
     };

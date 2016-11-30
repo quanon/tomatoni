@@ -1,5 +1,5 @@
 <template lang="pug">
-  a.item(:class='cls' @click='onClick()')
+  a.item(:class='cls' @click='$emit("click")')
     img(:src='src')
 </template>
 
@@ -8,18 +8,13 @@ import $ from 'jquery';
 import emojione from 'emojione';
 
 export default {
-  props: ['isActive', 'emoji', 'selectMode'],
+  props: ['isActive', 'emoji'],
   computed: {
     cls() {
       return this.isActive() ? 'active' : '';
     },
     src() {
       return $(emojione.toImage(this.emoji)).prop('src');
-    }
-  },
-  methods: {
-    onClick() {
-      this.selectMode();
     }
   }
 };
