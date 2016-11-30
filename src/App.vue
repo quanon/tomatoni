@@ -7,17 +7,26 @@
       .row
         .center.aligned.column
           timer
-          timer-button
+          timer-button.timer-button
       .row
         .center.aligned.column
           stocked
 </template>
 
 <script>
+import $ from 'jquery';
 import Timer from './components/Timer';
 import TimeMenu from './components/TimeMenu';
 import TimerButton from './components/TimerButton';
 import Stocked from './components/Stocked';
+
+const ENTER = 13;
+
+$('body').keypress((e) => {
+  if (e.which === ENTER) {
+    $('.timer-button').click();
+  }
+});
 
 export default {
   components: {
