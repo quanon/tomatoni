@@ -15,14 +15,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/stylesheets/variables';
+@import '../assets/stylesheets/colors';
 @import '../assets/stylesheets/modular-scale';
+@import '../assets/stylesheets/variables';
 
 .time {
   font-size: modular-scale(8);
   line-height: modular-scale(8);
   margin-bottom: 1.0rem;
-  color: #821400;
+  color: shade($tomato, 55%);
   font-weight: bold;
 
   @media screen and (max-width: $tablet-breakpoint) {

@@ -36,8 +36,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/stylesheets/colors';
+
 .icon {
-  color: #821400;
+  color: shade($tomato, 55%);
   cursor: pointer;
 
   &.disabled {

@@ -21,16 +21,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/stylesheets/variables';
+@import '../assets/stylesheets/colors';
 @import '../assets/stylesheets/modular-scale';
+@import '../assets/stylesheets/variables';
 
 .item,
 .item::before {
-  background-color: #ffe8e4 !important;
+  background-color: tint($tomato, 85%) !important;
 }
 
 .item {
-  border-color: #ffe8e4 !important;
+  border-color: tint($tomato, 85%) !important;
   padding-left: 5.0rem !important;
   padding-right: 5.0rem !important;
 
@@ -44,7 +45,7 @@ export default {
   }
 
   &.active {
-    background-color: #ffd7d0 !important;
+    background-color: tint($tomato, 75%) !important;
 
     img {
       filter: none;

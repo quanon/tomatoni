@@ -45,12 +45,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/stylesheets/variables';
-@import '../assets/stylesheets/modular-scale';
-
 .menu {
   background-color: #ffe8e4 !important;
-  box-shadow: none !important;
   border-color: #ffe8e4 !important;
+  box-shadow: none !important;
 }
 </style>
