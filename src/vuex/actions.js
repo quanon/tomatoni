@@ -39,9 +39,13 @@ export default {
       commit(MutationTypes.TICK);
 
       if (getters.isFinished) {
+        const isPomodoro = getters.isPomodoro;
+
         commit(MutationTypes.STOP);
+        if (isPomodoro) commit(MutationTypes.STOCK);
         sound.play();
-        showNotification({ isPomodoro: getters.isPomodoro });
+        showNotification({ isPomodoro });
+
         clearInterval(ticktackId);
         return;
       }
@@ -57,9 +61,9 @@ export default {
   },
 
   [ActionTypes.RESET]({ commit }) {
+    sound.stop();
     commit(MutationTypes.STOP);
     commit(MutationTypes.RESET);
-    sound.stop();
   },
 
   [ActionTypes.SELECT_POMODORO]({ commit }) {
@@ -74,5 +78,9 @@ export default {
     commit(MutationTypes.SET_DEFAULT_TIME, {
       defaultTime: Config.DEFAULT_SHORT_BREAK_TIME
     });
+  },
+
+  [ActionTypes.STOCK]({ commit }) {
+    commit(MutationTypes.STOCK);
   }
 };

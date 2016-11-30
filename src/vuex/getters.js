@@ -19,5 +19,9 @@ export default {
 
   isFinished(state) {
     return state.time === '00:00';
+  },
+
+  stocked(state) {
+    return state.stocked;
   }
 };

@@ -24,5 +24,9 @@ export default {
 
   [MutationTypes.STOP](state) {
     state.isActive = false;
+  },
+
+  [MutationTypes.STOCK](state) {
+    state.stocked += 1;
   }
 };
