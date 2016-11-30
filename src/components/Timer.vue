@@ -25,6 +25,7 @@ export default {
   line-height: modular-scale(8);
   margin-bottom: 1.0rem;
   color: #821400;
+  font-weight: bold;
 
   @media screen and (max-width: $tablet-breakpoint) {
     font-size: modular-scale(7);
