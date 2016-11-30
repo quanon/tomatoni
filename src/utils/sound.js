@@ -6,7 +6,8 @@ let sound = null;
 export default {
   play() {
     sound = new Howl({
-      src: [src]
+      src: [src],
+      volume: 0.5
     });
 
     sound.play();
