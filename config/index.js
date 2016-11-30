@@ -6,10 +6,9 @@ module.exports = {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
-    // assetsSubDirectory: 'static',
-    assetsSubDirectory: '/static', // for GitHub Pages
+    assetsSubDirectory: 'static', // for GitHub Pages
     // assetsPublicPath: '/',
-    assetsPublicPath: '/tomatoni', // for GitHub Pages
+    assetsPublicPath: '/tomatoni/', // for GitHub Pages
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
