@@ -1,12 +1,9 @@
-<template>
-  <div class="ui compact menu">
-    <a class="item" :class="tomatoClass" @click="onClickTomato()">
-      <img :src=tomatoSrc>
-    </a>
-    <a class="item" :class="coffeeClass" @click="onClickCoffee()">
-      <img :src=coffeeSrc>
-    </a>
-  </div>
+<template lang="pug">
+  .ui.compact.menu
+    a.item(:class='tomatoClass' @click='onClickTomato()')
+      img(:src='tomatoSrc')
+    a.item(:class='coffeeClass' @click='onClickCoffee()')
+      img(:src='coffeeSrc')
 </template>
 
 <script>

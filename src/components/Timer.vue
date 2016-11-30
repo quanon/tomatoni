@@ -1,7 +1,5 @@
-<template>
-  <div class="time">
-    {{ time }}
-  </div>
+<template lang="pug">
+  .time {{ time }}
 </template>
 
 <script>

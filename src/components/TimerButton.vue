@@ -1,5 +1,5 @@
-<template>
-  <i class="huge icon" :class="iconClass" @click="onClick"></i>
+<template lang="pug">
+  i.huge.icon(:class='iconClass' @click='onClick')
 </template>
 
 <script>

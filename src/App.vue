@@ -1,21 +1,14 @@
-<template>
-  <div id="app">
-    <main class="ui middle aligned grid">
-      <div class="row">
-        <div class="center aligned column">
-          <time-menu class="time-menu"></time-menu>
-        </div>
-      </div>
-      <div class="row">
-        <div class="center aligned column">
-          <timer></timer>
-          <timer-button class="timer-button"></timer-button>
-        </div>
-      </div>
-      <div class="row">
-      </div>
-    </main>
-  </div>
+<template lang="pug">
+  #app
+    main.ui.middle.aligned.grid
+      .row
+        .center.aligned.column
+          time-menu
+      .row
+        .center.aligned.column
+          timer
+          timer-button
+      .row
 </template>
 
 <script>
