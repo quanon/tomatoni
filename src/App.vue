@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <navbar></navbar>
     <main class="ui middle aligned grid">
       <div class="row">
         <div class="center aligned column">
@@ -20,14 +19,12 @@
 </template>
 
 <script>
-import Navbar from './components/Navbar';
 import Timer from './components/Timer';
 import TimeMenu from './components/TimeMenu';
 import TimerButton from './components/TimerButton';
 
 export default {
   components: {
-    Navbar,
     TimeMenu,
     Timer,
     TimerButton
@@ -36,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.time-menu {
-  margin-bottom: 5.0rem !important;
+#app {
+    padding: 1.0rem;
 }
 </style>
