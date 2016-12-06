@@ -6,18 +6,20 @@ import Config from '../config';
 import sound from '../utils/sound';
 import Notification from '../utils/notification';
 
-const showNotification = ({ isPomodoro }) => {
+const showNotification = ({ isPomodoro, onClose }) => {
   let notification;
 
   if (isPomodoro) {
     notification = new Notification('Well done 👍', {
       body: 'Take a short break ☕️',
-      icon: $(emojione.toImage(':tomato:')).prop('src')
+      icon: $(emojione.toImage(':tomato:')).prop('src'),
+      notifyClose: onClose
     });
   } else {
     notification = new Notification('Short break finished 😇', {
       body: 'Start the next job',
-      icon: $(emojione.toImage(':tomato:')).prop('src')
+      icon: $(emojione.toImage(':tomato:')).prop('src'),
+      notifyClose: onClose
     });
   }
 
@@ -44,7 +46,7 @@ export default {
         commit(MutationTypes.STOP);
         if (isPomodoro) commit(MutationTypes.ADD_STOCK);
         sound.play();
-        showNotification({ isPomodoro });
+        showNotification({ isPomodoro, onClose: sound.stop });
 
         clearInterval(ticktackId);
         return;
