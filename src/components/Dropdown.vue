@@ -1,6 +1,6 @@
 <template lang="pug">
   .ui.dropdown
-    i.ellipsis.vertical.large.icon
+    i.large.setting.icon
     .menu(@click='onClick')
       .active.item
         i.trash.icon
@@ -32,7 +32,7 @@ export default {
   z-index: 1;
   color: tint($tomato, 50%);
   position: fixed;
-  top: 10px;
+  bottom: 10px;
   left: 10px;
   cursor: pointer;
 }
