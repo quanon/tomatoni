@@ -4,5 +4,6 @@ export default {
   TICK: 'TICK',
   START: 'START',
   STOP: 'STOP',
-  STOCK: 'STOCK'
+  ADD_STOCK: 'ADD_STOCK',
+  RESET_STOCK: 'RESET_STOCK'
 };

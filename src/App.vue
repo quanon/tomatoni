@@ -1,5 +1,6 @@
 <template lang="pug">
   #app
+    dropdown
     main.ui.middle.aligned.grid
       .row
         .center.aligned.column
@@ -19,6 +20,7 @@ import Timer from './components/Timer';
 import TimeMenu from './components/TimeMenu';
 import TimerButton from './components/TimerButton';
 import Stocked from './components/Stocked';
+import Dropdown from './components/Dropdown';
 
 const ENTER = 13;
 
@@ -33,7 +35,8 @@ export default {
     TimeMenu,
     Timer,
     TimerButton,
-    Stocked
+    Stocked,
+    Dropdown
   }
 };
 </script>

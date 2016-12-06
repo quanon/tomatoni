@@ -42,7 +42,7 @@ export default {
         const isPomodoro = getters.isPomodoro;
 
         commit(MutationTypes.STOP);
-        if (isPomodoro) commit(MutationTypes.STOCK);
+        if (isPomodoro) commit(MutationTypes.ADD_STOCK);
         sound.play();
         showNotification({ isPomodoro });
 
@@ -80,7 +80,11 @@ export default {
     });
   },
 
-  [ActionTypes.STOCK]({ commit }) {
-    commit(MutationTypes.STOCK);
+  [ActionTypes.ADD_STOCK]({ commit }) {
+    commit(MutationTypes.ADD_STOCK);
+  },
+
+  [ActionTypes.RESET_STOCK]({ commit }) {
+    commit(MutationTypes.RESET_STOCK);
   }
 };

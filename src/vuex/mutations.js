@@ -26,7 +26,11 @@ export default {
     state.isActive = false;
   },
 
-  [MutationTypes.STOCK](state) {
+  [MutationTypes.ADD_STOCK](state) {
     state.stocked += 1;
+  },
+
+  [MutationTypes.RESET_STOCK](state) {
+    state.stocked = 0;
   }
 };
