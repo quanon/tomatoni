@@ -32,8 +32,8 @@ export default {
   z-index: 1;
   color: tint($tomato, 50%);
   position: fixed;
-  bottom: 10px;
-  left: 10px;
+  bottom: 5px;
+  left: 5px;
   cursor: pointer;
 }
 

@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    dropdown
+    config-button
     main.ui.middle.aligned.grid
       .row
         .center.aligned.column
@@ -20,7 +20,7 @@ import Timer from './components/Timer';
 import TimeMenu from './components/TimeMenu';
 import TimerButton from './components/TimerButton';
 import Stocked from './components/Stocked';
-import Dropdown from './components/Dropdown';
+import ConfigButton from './components/ConfigButton';
 
 const ENTER = 13;
 
@@ -36,7 +36,7 @@ export default {
     Timer,
     TimerButton,
     Stocked,
-    Dropdown
+    ConfigButton
   }
 };
 </script>
